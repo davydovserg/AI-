@@ -1,1 +1,78 @@
-AI-pult
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-пульт собственника</title>
+  <meta name="description" content="Демонстрация AI-пульта собственника группы компаний: 4 эпохи первого этапа (месяцы 0–3) и эффект решений.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Псевдо-авторизация: защита от случайного просмотра, не от взлома -->
+  <div id="login" class="login">
+    <form id="loginForm" class="login__card" autocomplete="off">
+      <div class="logo logo--big"><span>П</span><i></i></div>
+      <h1>AI-пульт собственника</h1>
+      <p class="muted">Демонстрационный стенд · этап 1 (90 дней)</p>
+      <label class="field">
+        <span>Пароль</span>
+        <input id="pwd" type="password" placeholder="••••••••" autofocus>
+      </label>
+      <button class="btn btn--accent" type="submit">Войти</button>
+      <p id="loginErr" class="login__err" hidden>Неверный пароль</p>
+    </form>
+  </div>
+
+  <div id="app" class="app" hidden>
+    <header class="top">
+      <div class="top__brand">
+        <div class="logo"><span>П</span><i></i></div>
+        <div>
+          <div class="top__title">AI-пульт собственника</div>
+          <div class="top__sub" id="groupName">Группа компаний</div>
+        </div>
+      </div>
+
+      <nav class="epochs" id="epochs" aria-label="Эпохи"></nav>
+
+      <div class="top__actions">
+        <button class="btn btn--ghost" id="resetBtn" title="Вернуть решения к базовому сценарию" hidden>Сбросить решения</button>
+        <button class="btn btn--ghost" id="logoutBtn">Выйти</button>
+      </div>
+    </header>
+
+    <section class="hero" id="hero"></section>
+
+    <nav class="tabs" id="tabs" role="tablist">
+      <button data-tab="cockpit" class="is-active">Пульт</button>
+      <button data-tab="decisions">Решения <b id="queueBadge" class="badge" hidden></b></button>
+      <button data-tab="system">Как работает система</button>
+      <button data-tab="group">Группа</button>
+      <button data-tab="project">Проект 90 дней</button>
+      <button data-tab="effect">Эффект</button>
+    </nav>
+
+    <main class="main">
+      <section class="tab is-active" id="tab-cockpit"></section>
+      <section class="tab" id="tab-decisions"></section>
+      <section class="tab" id="tab-system"></section>
+      <section class="tab" id="tab-group"></section>
+      <section class="tab" id="tab-project"></section>
+      <section class="tab" id="tab-effect"></section>
+    </main>
+
+    <footer class="foot">
+      <span id="sources"></span>
+      <span>Метка <span class="tag tag--model">модель</span> — расчётное значение для демонстрации, требует сверки с 1С.</span>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
